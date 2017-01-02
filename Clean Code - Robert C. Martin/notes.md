@@ -14,9 +14,6 @@ Road to craftsmanship - knowledge and work.
 
 **It’s your job to defend the code with equal passion. **
 
-**
-**
-
 What if you were a doctor and the patient said stop washing your hands, I need you to work faster?
 
 You will not make the deadline by making a mess. You need to write clean code to write fast.
@@ -27,18 +24,9 @@ Leave the campground cleaner than you found it.
 
 **Meaningful Names**
 
-**
-**
-
 **VARIABLES**
 
-**
-**
-
 **USE INTENTION REVEALING NAMES **
-
-**
-**
 
 A variable, function or class should tell you why it exists, what it does, and how it is used.
 
@@ -46,22 +34,9 @@ We want to reveal the intention behind what we have done rather than forcing our
 
 **DON’T USE SIMILAR SOUNDING NAMES**
 
-**
-**
-
 Avoid using names that look or sound the same. With code completion, we don’t want a developer to use the wrong function or variable.
 
-**
-**
-
-****
-
-****
-
 **BE EXPLICIT**
-
-**
-**
 
 Name your variables such that they tell you why it exists, what it does and how it is used.
 
@@ -87,15 +62,9 @@ end
 
 **Avoid disinformation**
 
-**
-**
-
 Don’t leave false clues that hide the meaning of the code. Don’t use variables that look very similar.
 
 **Avoid meaningless distinctions**
-
-**
-**
 
 Don’t create a Product class and then create ProductData or ProductInfo - it does not help us!
 
@@ -103,17 +72,11 @@ Make names so that the reader can tell the difference!!
 
 **Make searchable variables**
 
-**
-**
-
 Avoid mental mapping - e.g. don’t map variables in your head and then expect other people to understand them.
 
 Class names should be nouns not verbs.
 
 **METHODS**
-
-**
-**
 
 These should have verb or verb phrases names like postPayment, deletePage, or save.
 
