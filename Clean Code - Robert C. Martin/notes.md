@@ -70,16 +70,68 @@ Don’t create a Product class and then create ProductData or ProductInfo - it d
 
 Make names so that the reader can tell the difference!!
 
-**Make searchable variables**
+**Use Pronounceable Names**
 
-Avoid mental mapping - e.g. don’t map variables in your head and then expect other people to understand them.
+Humans are good at words. It helps us to talk about our applications. Make it easy for developers to read and talk about your work by not using variables like genymdhms (generation, date, year, month, day, hour, minute, second. How about generationTimestamp as a variable?
 
-Class names should be nouns not verbs.
+**Make Searchable Variables**
+
+Using the letter i is going to make readers sad when they are trying to use your work. How are they to find it if there's a bunch of other variables using i in the name?
+
+**Avoid Hungarian Notation**
+
+Don't name variables with their type in them. nameLabel is not necessary with modern IDEs as the compiler will detect a type error before a compile. They make it harder to change a variable when the type needs changing e.g. Changing nameLabel to nameButton requires a changing of the type and the variable name.
+
+**Avoid Mental Mapping**
+
+Do not insist on making your readers figure out what x, y and z are when you can give them better names and make life easier for everyone. Clarity is king.
+
+**Class names**
+
+Classes and objects should have noun or noun phrase names e.g. Ball, Puppy, PuppyFeeder. Avoid names that are verbs.
+
+**Don't use multiple names per concept**
+
+If you have a method that applies styling to a view and you call it applyStyling() don't in another class call this setupStyling() (protocols can be used to define this behaviour in iOS). Still, if you then use the word "setup" for one method make sure to keep this consistent across the application. This will give readers an idea of what is taking place without doing mental gymnastics.
+
+Likewise, make sure that these words don't have multiple meanings in your application. Don't choose "fetch" when you are fetching from the database and then use this to execute other behaviour.
+
+**Go ahead and use solution and domain names**
+
+You don't have to name everything according to your domain. People reading your code are developers so it's fine to name a class after accountFactory after the factory pattern.
+
+It's also fine to use domain specific names when there is not a technical way of conveying the concept.
 
 **METHODS**
 
+**Method names**
+
+These should be verbs and never nouns. Feed, Play, or Fetch are examples.
+
 These should have verb or verb phrases names like postPayment, deletePage, or save.
 
-Pick one word per concept e.g. fetch, retrieve, get..
+**Add Meaningful Context**
 
-Add meaningful context. If you see city, state and country you might think of an address but if you see state alone you probably would not. It's better to use addrCity, addrState. A better solution is to create an address model.
+Add meaningful context. If you see city, state and country you might think of an address but if you see state alone you probably would not. It's better to use addressCity, addressState. A better solution is to create an address model.
+
+**Don't add gratuitous context**
+
+Don't add the prefix HRL (Happy Puppies Rule) to your new Puppy app's classes. HPLUser is not necessary in most modern programming languages (sorry Objective-C).
+
+**Don't be afraid**
+
+Don't be afraid to rename things where it makes sense. Developers on your project should be happy that you have improved the code.
+
+**Functions**
+
+The first rule of functions is that they should be small. But how small? They should do one thing. But what does one thing  mean?
+
+A function should include code that is only one level of abstraction below it's stated intent. We can also say: if part of a function can be refactored into a separate function with a name that is not a restatement of what that function already is named, then it is doing one more than thing.
+
+**Step down rule**
+
+We want the code to read like a newspaper. We have the headline interfaces at the top and each method below descends into the next layers of abstraction.
+
+**Switch statements**
+
+These often violate SRP because, by nature, they act on multiple scenarios. Try to keep these to a minimum by using polymorphism to create the objects using the switch statement.
