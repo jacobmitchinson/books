@@ -108,8 +108,6 @@ It's also fine to use domain specific names when there is not a technical way of
 
 These should be verbs and never nouns. Feed, Play, or Fetch are examples.
 
-These should have verb or verb phrases names like postPayment, deletePage, or save.
-
 **Add Meaningful Context**
 
 Add meaningful context. If you see city, state and country you might think of an address but if you see state alone you probably would not. It's better to use addressCity, addressState. A better solution is to create an address model.
@@ -120,7 +118,7 @@ Don't add the prefix HRL (Happy Puppies Rule) to your new Puppy app's classes. H
 
 **Don't be afraid**
 
-Don't be afraid to rename things where it makes sense. Developers on your project should be happy that you have improved the code.
+Don't be afraid to rename things where it makes sense. Developers on your project will be happy that you have improved the code.
 
 **Functions**
 
@@ -135,3 +133,100 @@ We want the code to read like a newspaper. We have the headline interfaces at th
 **Switch statements**
 
 These often violate SRP because, by nature, they act on multiple scenarios. Try to keep these to a minimum by using polymorphism to create the objects using the switch statement.
+
+**Use Descriptive Names**
+
+You can't overestimate the importance of using good names for functions. "You know you are working on good code when each routine turns out to be pretty much what you expected".
+
+Don't be afraid to make a name long. A long descriptive name is better than a short enigmatic one.
+
+**Function Arguments**
+
+Arguments are difficult for readers. Try not to argue too much. The ideal number of argument that a function takes is zero. More than three arguments should not be used as they are  confusing and hard to test.
+
+**Monadic Functions**
+
+There are two common forms of monadic functions:
+
+1. Question arguments: totalAgeOfPuppies(puppies:[Puppy]) -> Int
+2. Transformational arguments: makeGreatAgain(puppy:Puppy) -> Puppy
+
+Try not to use output arguments i.e. sending an argument to a function and then modifying it. Readers normally expect output from functions so make sure that if the the function modifies the argument that it also returns it.
+
+
+**Flag Arguments**
+
+Functions should not accept a boolean. This is a sign that the function is doing more than one thing.
+
+**Dyadic Functions**
+
+Two arguments in a function is acceptable but we should try to make these monads.
+
+**Triads**
+
+Functions that take 3 arguments are significantly harder to understand. Often 3 arguments is a sign that we can wrap the arguments into a class of their own.
+
+**Verb/Noun keyword**
+
+Our function should create a nice verb/noun pair with a monad from the name of function and its first argument e.g. write(name).
+
+**No Side Effects**
+
+Don't let your functions do other things than the name suggests.
+
+**Output arguments**
+
+In general, appendFooter(report) is confusing because we don't know what is being done to s: is it being modified?
+
+It is better to write report.appendFooter(). Now it's clear.
+
+**Command Query Separation**
+
+Functions should either do something or answer something but not both. It is confusing for readers as we don't know what's being done without going into the method.
+
+**Don't repeat yourself**
+
+Just don't.
+
+**Comments**
+
+The proper use of comments is to compensate for our failure to express ourselves in code. Comments lie. Not always, but often. Code changes and evolves but the comments don't always follow the code. We could argue that we should maintain the comments but wouldn't it be better to maintain clearer code? Only the code can truly tell you what it does.
+
+Exlain yourself in code, not comments:
+
+What would you rather see. This:
+
+// check to see if employee is eligible for benefits
+if ((employee.flag == self.hourlyFlag) && employee.age > 65)
+
+Or this?
+
+if (employee.isEligibleForBenefits())
+
+Sometimes comments are needed to make things clearer, explain intent, warn, add todos,
+
+If you are writing public apis then you should still write good docs.
+
+**Formatting**
+
+**Keep Classes Small**
+
+How small is small? FitNesse, a testing tool, has 50,000 lines with an average length of 200 lines and an upper limit of 500 lines.
+
+Small files are usually easier to understand than larger ones.
+
+**Newspaper**
+
+Classes should read like newspaper articles. You get the headline at the top and then we move down into the details. The high level concepts should be at the top and the minutae should be at the bottom.
+
+**Add vertical openness**
+
+Each line represents an expression or clause. Each group of lines should express a thought.
+
+**Vertical Distance**
+
+Concepts that are closely related should be close to each other. This will help readers find what you are talking about.
+
+**Dependent Functions**
+
+Functions that call other functions should be vertically close.
