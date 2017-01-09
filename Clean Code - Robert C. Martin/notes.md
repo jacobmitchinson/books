@@ -230,3 +230,38 @@ Concepts that are closely related should be close to each other. This will help 
 **Dependent Functions**
 
 Functions that call other functions should be vertically close.
+
+**Abstractions**
+
+ It is important to hide implementation. We want to express our data in abstract terms.
+
+ **Data/object symmetry**
+
+Objects hide their data behind abstractions and expose functions that manipulate the data.  Data structures have no meaningful functions and expose their data.
+
+**Law of Demeter**
+
+The Law of Demeter says that an object should not know about the internal structures of another object.
+
+More precisely, we can say that an a method f of class C should only call the methods of these:
+
+1. C
+2. An object created by f
+3. An object passed as an argument to f
+4. An object held in an instance variable of C
+
+In other words, talk to friends, not strangers.
+
+**Avoid Train Wrecks**
+
+This is a train wreck: puppy.owner.favouriteParks = [Park(name:"Finsbury Park"), Park(name:"Regents Park")]
+
+We should avoid manipulating the owner object's internal structure.
+
+**Error handling**
+
+ Throwing exceptions can separate concerns between successful states and errors. This is more favourable versus using error codes.
+
+**Boundaries**
+
+If you use a boundary interface then keep it inside a class and avoid passing it around.
