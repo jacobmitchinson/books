@@ -151,7 +151,7 @@ There are two common forms of monadic functions:
 1. Question arguments: totalAgeOfPuppies(puppies:[Puppy]) -> Int
 2. Transformational arguments: makeGreatAgain(puppy:Puppy) -> Puppy
 
-Try not to use output arguments i.e. sending an argument to a function and then modifying it. Readers normally expect output from functions so make sure that if the the function modifies the argument that it also returns it.
+Try not to use output arguments i.e. sending an argument to a function and then modifying it. Readers normally expect output from functions so make sure that if the function modifies the argument that it also returns it.
 
 
 **Flag Arguments**
@@ -265,3 +265,9 @@ We should avoid manipulating the owner object's internal structure.
 **Boundaries**
 
 If you use a boundary interface then keep it inside a class and avoid passing it around.
+
+**3rd party code**
+
+We can write tests around the 3rd party to test how expect it to be used in our application. Then if things change in a future update we will know.
+
+The tests cost us nothing since we need to establish how it works anyway.
