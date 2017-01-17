@@ -271,3 +271,5 @@ If you use a boundary interface then keep it inside a class and avoid passing it
 We can write tests around the 3rd party to test how expect it to be used in our application. Then if things change in a future update we will know.
 
 The tests cost us nothing since we need to establish how it works anyway.
+
+Manage third party libraries by having few places in the code that refer to them.
