@@ -272,4 +272,20 @@ We can write tests around the 3rd party to test how expect it to be used in our 
 
 The tests cost us nothing since we need to establish how it works anyway.
 
-Manage third party libraries by having few places in the code that refer to them.
+**Three Laws of TDD**
+
+* You may not write write production code before you have written a failing test
+* You may not write more of a unit test than is sufficient to fail, and not compiling is failing
+* You may not write more production code than is sufficient to pass the currently failing test
+
+**Clean Tests**
+
+It is tempting to shy away from making your tests as clean as your production code. But this is a mistake. If tests become too difficult to maintain, they won't get written.
+
+**One Assertion Per Test?**
+
+Try to keep one assertion to each test. This enables the code to be quick and easy to understand and tells you straight away why a test has failed.
+
+However, sometimes one assertion per test does not make sense. A single concept per test is more appropriate.
+
+State your test in Given When Then form to find out if you are testing more than you should be in a single test.
