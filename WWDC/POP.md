@@ -72,3 +72,12 @@ struct Layout2<Child:Layout> : Layout {
 A great advantage of using structs this way is that they are highly testable.
 
 Controllers:
+
+We can move state into enums to ensure that states are tracked correctly and prevent errors.
+
+Takeaways:
+
+Customization through composition instead of inheritance
+Use protocols for generic reusable code
+Take advantage of value semantics
+Local reasoning is very important!
