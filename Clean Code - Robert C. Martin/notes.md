@@ -289,3 +289,51 @@ Try to keep one assertion to each test. This enables the code to be quick and ea
 However, sometimes one assertion per test does not make sense. A single concept per test is more appropriate.
 
 State your test in Given When Then form to find out if you are testing more than you should be in a single test.
+
+**F.I.R.S.T Tests**
+
+Tests should be:
+
+1) Fast - They should run quickly
+2) Indepedent - Tests should not depend on each other
+3) Repeatable - They should work in any environment
+4) Self-validating - They either pass or fail
+5) Timely - They need to be written in a timely fashion (just before production code)
+
+**Class Organization**
+
+A class should begin with a list of variables. Public variables should come first. Then private ones. Public functions should follow the list of variables. Put the private utilities right after the public function. This follows the stepdown rule, allowing us to read the class like a newspaper.
+
+**Encapsulation**
+
+Try to keep your private variables private but let's not be fanatic about this. Sometimes we need to be able to access the variables for tests. This is ok. Try to maintain privacy though.
+
+**Classes == Small**
+
+Classes should be small. How small? We should make our classes small enough to only contain a single responsibility. If we cannot find a concise name for a class, it's likely too large. Describe your class as a sentence. If you start spotting the words "and", "if", "or" and "but" then it's quite likely that your class does more than one thing.
+
+SRP says that a class should have ONE and only ONE reason to change. Identify responsibilities helps us create better abstractions for our code.
+
+We want our system to be composed of many small classes, not a few large ones.
+
+**Cohesion**
+
+Classes should have a small number of instance variables. Each of the methods in the class should manipulate one or more of those variables. A class which each variables is used in each method is maximally cohesive.
+
+This is not always possible but it is desired because maximal cohesion means that the instance variables and methods are working together as a logical whole. If you start noticing there that there are two subsets of instance variables and methods that use these in your class, it's a sign that your class is violating SRP.
+
+**Maintaining cohension**
+
+When we refactor large methods into smaller ones we often find that we'll need to pass around variables but we dont want to have to pass all of these variables into the function. Hence we create instance variables. But in doing so we get less cohesion within our class. When you start to generate low cohesion in your class, it's a good time to split the class.
+
+**Organizing for change**
+
+Organizing our code into smaller classes helps us to make changes quickly: the required comprehension for each change is much lower and this helps reduce the risk of making that change.
+
+**Isolating for change**
+
+The Dependency Inversion Principle states that we should depend on abstractions not concretions. What does this mean?
+
+Dependencies on concrete details create challenges for testing our system. Imagine we are building an application that interacts with the Twitter API and we create a class called TwitterAPI that handles this interaction. If we have a class PhotoDownloader that that reads photos from the TwitterAPI, it's difficult to test this properly if we are constantly fetching new photos from the API.
+
+What we can do instead is give PhotoDownloader an interface to interact with the TwitterAPI. We do this by dependency injecting the the TwitterAPI but we define an abstract interface called getPhotos on the TwitterAPI which PhotoDownloader can use. 
