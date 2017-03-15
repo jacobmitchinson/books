@@ -328,7 +328,7 @@ When we refactor large methods into smaller ones we often find that we'll need t
 
 **Organizing for change**
 
-Organizing our code into smaller classes helps us to make changes quickly: the required comprehension for each change is much lower and this helps reduce the risk of making that change.
+Organizing our code into smaller classes helps us to make changes quickly: the required comprehension for each change is much lower. Further, we can reduce the risk of impacting other code by reducing reasons for changing the classes.
 
 **Isolating for change**
 
@@ -336,4 +336,26 @@ The Dependency Inversion Principle states that we should depend on abstractions 
 
 Dependencies on concrete details create challenges for testing our system. Imagine we are building an application that interacts with the Twitter API and we create a class called TwitterAPI that handles this interaction. If we have a class PhotoDownloader that that reads photos from the TwitterAPI, it's difficult to test this properly if we are constantly fetching new photos from the API.
 
-What we can do instead is give PhotoDownloader an interface to interact with the TwitterAPI. We do this by dependency injecting the the TwitterAPI but we define an abstract interface called getPhotos on the TwitterAPI which PhotoDownloader can use. 
+What we can do instead is give PhotoDownloader an interface to interact with the TwitterAPI. We do this by dependency injecting the the TwitterAPI but we define an abstract interface called getPhotos on the TwitterAPI which PhotoDownloader can use.
+
+**System**
+
+We should try to create separation between when the startup process, when the application objects that are constructed, from the runtime logic that takes over after startup.
+
+**Main**
+
+One way to do this is to move all construction into main.
+
+**Dependency Injection**
+
+We can separate construction from use by using DI (an application of Inversion of Control). Inversion of Control moves secondary responsibilities from one object to another. In the context of dependency management an object should not take responsibility for instantiating dependencies itself.
+
+**Scaling Up**  
+
+It is a myth that we can get systems right the first time. Take the example of a city, you might wonder why roads are constantly being widened. Why didn't they do it right the first time? It makes no sense to make a road 6 lanes wide when it's just a small town.
+
+Instead we should implement only today's stories and then refactor and expand. This is the essence of iterative and incremental agility.
+
+Surely we can't grow incrementally from simple to complex though?
+
+"Software systems are unique compares to physical systems. Their architecture can grow incrementally if we maintain the proper separation of concerns."
