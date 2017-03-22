@@ -359,3 +359,53 @@ Instead we should implement only today's stories and then refactor and expand. T
 Surely we can't grow incrementally from simple to complex though?
 
 "Software systems are unique compares to physical systems. Their architecture can grow incrementally if we maintain the proper separation of concerns."
+
+It is not necessary to do Big Design Up Front. This is often damaging because it stops us changing when we are going in the wrong direction. Physical systems require upfront design because the cost of changing such systems is high. If we are architect for change this does not need to be the case with software.
+
+This means we can start a project naively, build some stories and adapt as necessary.
+
+This does not mean we go into a project with no concept of its direction. But we must maintain an ability to change.
+
+Put off major decisions like persistence until we absolutely need to make them. Major decisions made early are decisions made with less knowledge than those made later.
+
+Standards make it easier to reuse ideas but do not fall into the trap of focusing on standards ahead of your customers' needs.
+
+Domain Specific Languages can help minimize the communication gap between a domain concept and the code implemented.
+
+Use the simplest thing that can possibly work.
+
+**Emergence**
+
+Kent Beck defined simple software as software that observes these rules:
+
+Runs all the tests
+Contains no duplication
+Expresses the intent of the programmer
+Minimizes the number of classes and methods
+
+These are in order of importance.
+
+**Runs All The Tests**
+
+A design must produce a system that acts as intended. A well tested system that passes all the tests is a testable system. Systems that aren't testable aren't verifiable. A system that cannot be verified should never be deployed.
+
+Testable designs are likely to lead to classes that observe SRP. Making fully testable applications leads to better designs.
+
+Following this simple and obvious rule for verifying systems leads to the primary OO goals: low coupling and high cohesion.
+
+**Refactoring**
+
+Once we have tests we know that refactoring the code will not break what we have already made.
+
+Duplication is the primary enemy of a well designed system.
+
+Expressive:
+
+It is easier to write code than to read it. Make your code as easy as possible to read.
+
+The majority of the cost of a software project is in long-term maintenance. It is essential that we understand what a system does in order for us to change it. The code should clearly express the intent of the author. The clearer the code, the less time developers will spend maintaining it.
+
+We can express ourselves properly:
+
+*With good names of methods and classes that don't have side effects
+*By keeping functions and classes small
