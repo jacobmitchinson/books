@@ -409,3 +409,18 @@ We can express ourselves properly:
 
 *With good names of methods and classes that don't have side effects
 *By keeping functions and classes small
+*Using standard design patterns to help others understand what we are trying to do e.g. Visitor or Commander
+*Well written unit tests are also expressive as they tell us what the code should do
+*The most important thing is to TRY. Code is often written to be functional and not always written to be read.
+
+**Minimal classes and methods**
+
+In an effort to make our classes and methods small, we might make too many tiny classes and methods that aren't needed. We want to observe all the above principles but still keep our class count low. This should not be at the expense of the above however and they are more important than this final rule.
+
+**Successive Refinement**
+
+They key to refactoring is to stick to the TDD approach. It's very difficult to write good code whilst trying to make what you are doing work. That said, if you write tests for your code, you can come back and improve the code. Remember: RED > GREEN > REFACTOR.
+
+Many new developers will get something to work and then move onto the next thing. Many seasoned developers know that this will leave the software in a mess. 
+
+Ensure to revisit your code but don't try to refactor everything all at once. BE INCREMENTAL in your changes. It is very difficult to change everything all at once.
