@@ -67,4 +67,34 @@ The builder pattern abstracts the construction process of an object to an interf
 
 *Motivation*
 
-Imagine we have a body of English text that, depending on the settings, needs to be converted to 
+Imagine we have a body of text and we wanted to convert this into different formats. The problem is that there is not a finite number of formats that we may wish to convert the text to. We may start with RTF, .DOC, and .MD for example.
+
+To do this we would create separate converter classes which in the case of .DOC might take the form of DocConverter class which contains methods for turning the text into a .DOC. We might have similar converters for our other formats.
+
+We would create an abstract interface called a TextConverter which would be responsible for building the different converters.
+
+Our parser might be called TextParser which contains an algorithm for interpreting the text type. This uses TextConverter to create different converters depending on the type. In this way, we have separated our parsing algorithm from the creation of the converters. We should now be able to add a new formats at will.
+
+Here we would call the TextParser the Director and the TextConveter the builder.
+
+*Applicability*
+
+Use the builder pattern when:
+
+* There needs to be independence between creating a complex object and an algorithm.
+* The construction process needs to allow for different types of objects
+
+*Collaborations*
+
+* The client creates the director and configures it with the desired builder
+* Director notifies the builder whenever a part should be built
+* Builder handles the request from the director and adds parts to the product
+* The client retrieves the product from the builder
+
+In short, the client creates a Builder and then initializes a Director with the Builder. It calls a construct method on the Director which then relays this to the Builder.
+
+
+*Consequences*
+
+* It lets you vary a product's internal representation. The Builder object provides an abstract interface for constructing the product. This means that the builder can hide the internal behaviour of how an object gets built. To change this behaviour we just need to provide a new kind of builder. 
+*
